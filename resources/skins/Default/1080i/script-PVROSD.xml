@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+    <defaultcontrol>10</defaultcontrol>
+    <animation effect="fade" time="250">WindowOpen</animation>
+    <animation effect="fade" time="250">WindowClose</animation>
+    <controls>
+        <control type="group">
+            <control type="image">
+                <top>615</top>
+                <width>1920</width>
+                <height>526</height>
+                <texture border="1">pvr/osd_bottom.png</texture>
+            </control>
+            <control type="button" id="10">
+                <description>stop</description>
+                <left>159</left>
+                <top>931</top>
+                <height>43</height>
+                <width>43</width>
+                <onright>11</onright>
+                <ondown>1600</ondown>
+                <texturefocus>osd/stop_fo.png</texturefocus>
+                <texturenofocus>osd/stop_nf.png</texturenofocus>
+            </control>
+            <control type="togglebutton" id="11">
+                <description>play/pause</description>
+                <left>277</left>
+                <top>931</top>
+                <width>43</width>
+                <height>43</height>
+                <onleft>10</onleft>
+                <ondown>1600</ondown>
+                <texturefocus>osd/pause_fo.png</texturefocus>
+                <texturenofocus>osd/pause_nf.png</texturenofocus>
+                <alttexturefocus>osd/play_fo.png</alttexturefocus>
+                <alttexturenofocus>osd/play_nf.png</alttexturenofocus>
+                <usealttexture>Player.Paused</usealttexture>
+                <onclick>Player.Pause</onclick>
+            </control>
+            <control type="group">
+                <control type="progress" id="1400">
+                    <left>160</left>
+                    <top>1014</top>
+                    <width>1520</width>
+                    <height>7</height>
+                    <texturebg border="6,0,6,0">osd/progress/texturebg_cache.png</texturebg>
+                    <lefttexture border="6,0,0,0" colordiffuse="FFFFFFFF">osd/progress/lefttexture.png</lefttexture>
+                    <midtexture border="0,0,1,0" colordiffuse="FFFFFFFF">osd/progress/midtexture.png</midtexture>
+                    <righttexture>-</righttexture>
+                    <visible>!Control.HasFocus(1600)</visible>
+                </control>
+                <control type="progress" id="1500">
+                    <left>160</left>
+                    <top>1014</top>
+                    <width>1520</width>
+                    <height>7</height>
+                    <texturebg border="6,0,6,0">osd/progress/texturebg_cache.png</texturebg>
+                    <lefttexture border="6,0,0,0" colordiffuse="light_blue">osd/progress/lefttexture.png</lefttexture>
+                    <midtexture border="0,0,1,0" colordiffuse="light_blue">osd/progress/midtexture.png</midtexture>
+                    <righttexture>-</righttexture>
+                    <visible>Control.HasFocus(1600)</visible>
+                </control>
+                <control type="slider" id="1600">
+                    <description>Seek Slider</description>
+                    <left>150</left>
+                    <top>1000</top>
+                    <width>1540</width>
+                    <height>35</height>
+                    <onup>10</onup>
+                    <texturesliderbar border="6,11,6,11">osd/seekslider2.png</texturesliderbar>
+                    <textureslidernib border="11">osd/slider_nib.png</textureslidernib>
+                    <textureslidernibfocus>osd/slider_nib_fo.png</textureslidernibfocus>
+                </control>
+                <control type="label" id="1700">
+                    <description>Time</description>
+                    <left>870</left>
+                    <top>931</top>
+                    <width>800</width>
+                    <height>45</height>
+                    <align>right</align>
+                    <font>font_number</font>
+                    <textcolor>white</textcolor>
+                </control>
+            </control>
+            <control type="label">
+                <left>150</left>
+                <top>43</top>
+                <width>1620</width>
+                <height>60</height>
+                <font>font60</font>
+                <textcolor>white</textcolor>
+                <label>$INFO[Player.Title]</label>
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="slide" start="0,40" end="0,0" time="150" tween="cubic" />
+                </animation>
+                <animation type="WindowClose" reversible="false">
+                    <effect type="slide" start="0,0" end="0,40" time="150" tween="cubic" easing="in" />
+                </animation>
+            </control>
+        </control>
+    </controls>
+</window>
